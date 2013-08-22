@@ -140,5 +140,9 @@
    <string name="TheEventWillStartIn">The event will start in</string>
    
    <string name="eventFunctionsTitle">Event actions</string>
+   
+   <string name="enable_template_changes">Enable template changes</string>
+   
+   <string name="enable_sounds_yes_no">Enable sounds Yes/No</string>
 </resources>
 

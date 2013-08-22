@@ -1,9 +1,12 @@
 package se.smartkalender;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.FileHandler;
+import java.util.logging.Level;
+import java.util.logging.LogRecord;
 
 import se.smartkalender.types.SmartCalendarEvent;
 
@@ -196,9 +199,9 @@ public class globals {
     	}
     }
 	
-    public static void addRecordToLog(String message){
+    public static void addRecordToLog(String message){/*
     	//Not in release: Log.d("SmartCalendar", message);
-    	/*LogRecord logRecord = new LogRecord(Level.INFO, message);
+    	LogRecord logRecord = new LogRecord(Level.INFO, message);
     	if (logger == null) {
 	        try {
 	        	logger = new FileHandler(Environment.getExternalStorageDirectory() + "/Android" + Environment.getDataDirectory() + "/se.smartkalender/files/log_"  + new Date().getTime() + ".xml");
@@ -217,8 +220,8 @@ public class globals {
 	            return;
 	        }
     	}
-    	logger.publish(logRecord);    */	
-    }
+    	logger.publish(logRecord);    	
+    */}
 
 	public static boolean isEventActive(Date selectedDate, SmartCalendarEvent e) {
 	    if (globals.isTimeAfter(selectedDate, e.getStartTime())){

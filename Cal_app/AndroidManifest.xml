@@ -57,7 +57,7 @@
             android:screenOrientation="portrait"
             android:theme="@style/NewDialog"
             android:windowSoftInputMode="stateAlwaysHidden" 
-            android:launchMode = "singleTop">
+            android:launchMode="singleTop">
         </activity>
         <activity
             android:name="EventDetailsActivity"

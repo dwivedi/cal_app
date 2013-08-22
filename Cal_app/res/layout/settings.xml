@@ -3,7 +3,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:background="@drawable/dialog_title"
-    android:padding="0dip"  >
+    android:padding="0dip" >
 
     <LinearLayout
         android:id="@+id/linearLayout1"
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:orientation="vertical"
-        android:padding="0dip"  >
+        android:padding="0dip" >
 
         <RelativeLayout style="@style/HeaderPanel" >
 
@@ -47,6 +47,24 @@
                     android:layout_height="wrap_content"
                     android:enabled="true"
                     android:text="@string/timeShowHoursMinutesString"
+                    android:textColor="@color/textColor" >
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/enableTemplateChanges"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="@string/enable_template_changes"
+                    android:textColor="@color/textColor" >
+                </CheckBox>
+
+                <CheckBox
+                    android:id="@+id/enableSounds"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:enabled="true"
+                    android:text="@string/enable_sounds_yes_no"
                     android:textColor="@color/textColor" >
                 </CheckBox>
             </LinearLayout>

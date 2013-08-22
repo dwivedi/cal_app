@@ -81,7 +81,18 @@
             android:layout_marginRight="0dp"
             android:layout_alignParentRight="true">
         </ImageButton>
+
     </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/calendarBkgPlaceSparator"
+        android:layout_width="match_parent"
+        android:layout_height="6dp"
+        android:layout_marginLeft="8dp"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
+
+    </LinearLayout>
 
     <ScrollView
         android:id="@+id/scrollview"

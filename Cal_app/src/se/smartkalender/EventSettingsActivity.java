@@ -10,7 +10,7 @@ import android.widget.CompoundButton.OnCheckedChangeListener;
 
 
 
-public class EventSettingsActivity extends Activity {
+public class EventSettingsActivity extends Activity implements OnCheckedChangeListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +26,11 @@ public class EventSettingsActivity extends Activity {
 				globals.timeShowHoursMinutes = isChecked;				
 			}
 		});
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+ 		
 	}
 	
 }
