@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SmartKalender</string>
+    <string name="Add_Event">Ny Händelse</string>
+    <string name="Show_All">Visa alla</string>
+    <string name="About">Om programmet</string>
+    <string name="Settings">Inställningar</string>
+    <string name="Save">Spara</string>
+    <string name="planBackward">Planera bakåt</string>
+    <string name="planForward">Planera framåt</string>
+    
+    <string name="eventDetailsHeader">Detaljer</string>    
+    <string name="eventDetailsPicture">Bild</string>
+    
+    <string name="Calendar">Kalender</string>
+    <string name="eventDetailsColor">Färg</string>
+    <string name="eventDetailsWhat">Vad</string>
+    <string name="eventDetailsTimeStart">Start</string>
+    <string name="eventDetailsTimeFinish">Slut</string>
+    <string name="eventDetailsDate">Datum</string>
+    <string name="eventDetailsRepeat">Upprepa</string>
+    <string name="eventDetailsReminder">Påminnelse</string>
+    <string name="eventDetailsDescription">Anteckning</string>
+    
+     <string name="eventAboutHeader">Om programmet</string>
+     <string name="aboutText">Detta program tillhör tina.wiman@assistapp.se - SmartKalender är utvecklat av Peter Püschel och Tommy Vilkensen. Hittar du några fel i programmet, beskriv felet för oss så kan vi åtgärda det. Skriv ett epost till info@smartkalender.se, tack för hjälpen!</string> 
+     
+     <string name="eventSettingsHeader">Inställningar</string>
+     <string name="eventSettingsActivateOnlineSync">Aktivera synkronisering till din internetkalender (kommande funktion)</string>
+     <string name="timeShowHoursMinutesString">Visa timmar och minuter för aktuell händelse i kalendervyn.</string>
+     
+     <string name="allEventHeader">Alla händelser</string>
+     
+    <string name="repeatDays">Upprepa dagar</string>
+    
+    <string name="chooseIcon">Välj bild</string>   
+    <string name="setDate">Ställ in datum</string>  
+    <string name="setTime">Ställ in tid</string>  
+    
+    <string name="colorPickerHeader">Välj färg</string>  
+    
+    <string name="goToCalendar">Visa kalendern</string>  
+    <string name="showDetails">Visa detaljer</string> 
+    <string name="snooze">Snooze</string> 
+    <string name="Hours">Timmar</string> 
+    <string name="Minutes">Minuter</string> 
+    <string name="changeEvent">Ändra händelse</string> 
+    <string name="Delete">Ta bort</string> 
+    <string name="OK">OK</string> 
+    <string name="Cancel">Avbryt</string> 
+    <string name="Back">Tillbaka</string> 
+    <string name="pleaseWaitGeneratingView">Vänta medan vyn uppdateras...</string>     
+    
+    <string name="eventsTemplates">Välj mall</string>
+        
+    <string-array name="hours">
+        <item>00:00</item>
+        <item>01:00</item>
+        <item>02:00</item>
+        <item>03:00</item>
+        <item>04:00</item>
+        <item>05:00</item>
+        <item>06:00</item>
+        <item>07:00</item>
+        <item>08:00</item>
+        <item>09:00</item>
+        <item>10:00</item>
+        <item>11:00</item>
+        <item>12:00</item>
+        <item>13:00</item>
+        <item>14:00</item>
+        <item>15:00</item>
+        <item>16:00</item>
+        <item>17:00</item>
+        <item>18:00</item>
+        <item>19:00</item>
+        <item>20:00</item>
+        <item>21:00</item>
+        <item>22:00</item>
+        <item>23:00</item>
+    </string-array>  
+    
+    <string-array name="minutes">
+        <item>15</item>
+        <item>30</item>
+        <item>45</item>
+    </string-array>  
+    
+     <string-array name="weekDays">
+        <item>Sön</item>
+        <item>Mån</item>
+        <item>Tis</item>
+        <item>Ons</item>
+        <item>Tor</item>
+        <item>Fre</item>
+        <item>Lör</item>
+       </string-array>   
+    
+    <string-array name="weekDaysFull">
+        <item>Söndag</item>
+        <item>Måndag</item>
+        <item>Tisdag</item>
+        <item>Onsdag</item>
+        <item>Torsdag</item>
+        <item>Fredag</item>
+        <item>Lördag</item>
+        </string-array> 
+
+    <string-array name="months">
+        <item>Jan</item>
+        <item>Feb</item>
+        <item>Mar</item>
+        <item>Apr</item>
+        <item>Maj</item>
+        <item>Jun</item>
+        <item>Jul</item>
+        <item>Aug</item>
+        <item>Sep</item>
+        <item>Okt</item>
+        <item>Nov</item>
+        <item>Dec</item>
+    </string-array>   
+    
+    <string-array name="monthsFull">
+        <item>Januari</item>
+        <item>Februari</item>
+        <item>Mars</item>
+        <item>April</item>
+        <item>Maj</item>
+        <item>Juni</item>
+        <item>Juli</item>
+        <item>Augusti</item>
+        <item>September</item>
+        <item>Oktober</item>
+        <item>November</item>
+        <item>December</item>
+    </string-array> 
+    
+   <string name="TheEventWillStartNow">Händelsen startar nu</string>
+   <string name="TheEventWillStartIn">Händelsen startar om</string>
+   
+   <string name="eventFunctionsTitle">Välj åtgärd</string>
+      
+</resources>
+

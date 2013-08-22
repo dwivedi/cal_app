@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+     <string-array name="event_icons_paths">
+        <item>barn_stor</item>
+        <item>bil_stor</item>
+        <item>borsta_tandarna_stor</item>
+        <item>buss_stor</item>
+        <item>cykel_stor</item>
+        <item>duscha_stor</item>
+        <item>fodelsedag_stor</item>
+        <item>ga_stor</item>
+        <item>hem_stor</item>
+        <item>hund_stor</item>
+        <item>kaffe_stor</item>
+        <item>lasa_stor</item>
+        <item>mat_stor</item>
+        <item>medicin_stor</item>
+        <item>nyckel_stor</item>
+        <item>penna_stor</item>
+        <item>regn_stor</item>
+        <item>resvaska_stor</item>
+        <item>simma_stor</item>
+        <item>skateboard_stor</item>
+        <item>skridskor_stor</item>
+        <item>sova_stor</item>
+        <item>stada_stor</item>
+        <item>tag_stor</item>
+        <item>tennis_stor</item>
+        <item>toalett_stor</item>
+        <item>tvatta_stor</item>
+        <item>vakna_stor</item>
+        <item>vard_stor</item>
+        <item>vatten_stor</item>
+   	</string-array>     
+
+</resources>
+

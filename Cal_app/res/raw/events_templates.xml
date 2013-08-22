@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+
+<templates>
+	<event name="Barn" 				icon="barn_stor" 
+	    color="0xffb8d0e7" category="Familj" 
+	    start="16:00" end="17:00" repeat="" reminder="0" description="" />
+	
+	<event name="Fest" 				icon="fodelsedag_stor" 
+	    color="0xffb8d0e7" category="Familj" 
+	    start="20:00" end="23:00" repeat="" reminder="0" description="" />
+	
+	<event name="Hund" 				icon="hund_stor" 
+	    color="0xffb8d0e7" category="Familj" 
+	    start="12:00" end="12:45" repeat="" reminder="0" description="" />
+	
+	<event name="Hem" 				icon="hem_stor" 
+	    color="0xffb8d0e7" category="Familj" 
+	    start="17:00" end="21:00" repeat="" reminder="0" description="" />	
+	
+	<event name="Vakna" 			icon="vakna_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="07:00" end="07:10" repeat="" reminder="0" description="" />
+	
+	<event name="Borsta tänderna" 	icon="borsta_tanderna_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="7:10" end="7:15" repeat="" reminder="0" description="" />
+	
+	<event name="Duscha" 			icon="duscha_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="7:15" end="7:30" repeat="" reminder="0" description="" />
+	
+	<event name="Mat" 				icon="mat_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="12:00" end="13:00" repeat="" reminder="0" description="" />
+	
+	<event name="Medicin" 			icon="medicin_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="15:00" end="15:05" repeat="" reminder="0" description="" />
+	
+	<event name="Nyckel" 			icon="nyckel_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="15:00" end="15:05" repeat="" reminder="0" description="" />
+	
+	<event name="Sova" 				icon="sova_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="22:00" end="24:00" repeat="" reminder="0" description="" />
+	
+	<event name="Städa" 			icon="stada_stor" 
+	    color="0xffcfefca" category="Rutiner" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Skriva" 			icon="penna_stor" 
+	    color="0xffeac9f0" category="Skola"
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Läsa" 				icon="lasa_stor" 
+	    color="0xffeac9f0" category="Skola" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Resväska" 			icon="resvaska_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Tåg" 				icon="tag_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Bil" 				icon="bil_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Buss" 				icon="buss_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Cykel" 			icon="cykel_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Gå" 				icon="ga_stor" 
+	    color="0xffe8e751" category="Transport" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Simma" 			icon="simma_stor" 
+	    color="0xffb8d0e7" category="Fritid" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Skateboard" 		icon="skateboard_stor" 
+	    color="0xffb8d0e7" category="Fritid" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Skridskor" 		icon="skridskor_stor" 
+	    color="0xffb8d0e7" category="Fritid" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Fika" 				icon="kaffe_stor" 
+	    color="0xffb8d0e7" category="Fritid" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />	
+	
+	<event name="Tennis" 			icon="tennis_stor" 
+	    color="0xffb8d0e7" category="Fritid" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Regn" 				icon="regn_stor" 
+	    color="0xffb8d0e7" category="Övrigt" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+	
+	<event name="Vatten" 			icon="vatten_stor" 
+	    color="0xffb8d0e7" category="Övrigt" 
+	    start="15:00" end="15:45" repeat="" reminder="0" description="" />
+
+</templates>

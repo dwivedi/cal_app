@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<style name="DividerLayout">
+		<item name="android:orientation">horizontal</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@drawable/divider</item>
+	</style>
+	
+	<style name="DividerDotLayout">
+		<item name="android:orientation">horizontal</item>
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:background">@drawable/divider_dot</item>
+	</style>
+	
+	<style name="TimeDotActiveImage">		
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:src">@drawable/time_dot_inactive</item>
+		<item name="android:layout_gravity">right</item>
+	</style>
+	
+	<style name="HeaderPanel">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">45dip</item>
+		<item name="android:background">@drawable/header_bkgnd</item>
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:orientation">horizontal</item>
+		<item name="android:padding">0dip</item>
+	</style>
+		
+	<style name="TableRowNotRoundedStyle">
+		<item name="android:gravity">center_vertical</item>
+		<item name="android:background">@drawable/table_row_bkg</item>
+	</style>
+	
+	<style name="ArrowButton">
+		<item name="android:layout_width">wrap_content</item>
+		<item name="android:layout_height">wrap_content</item>
+		<item name="android:gravity">center</item>
+		<item name="android:textSize">18sp</item>
+		<item name="android:background">@drawable/arrow_forward_small</item>
+		<item name="android:layout_marginLeft">5dp</item>
+		<item name="android:layout_marginRight">5dp</item>
+		<item name="android:layout_marginTop">5dp</item>
+		<item name="android:layout_marginBottom">5dp</item>
+			</style>
+
+	<style name="EventIconStyle">
+		<item name="android:layout_width">fill_parent</item>
+		<item name="android:layout_height">fill_parent</item>
+		<item name="android:layout_margin">0dip</item>
+		<item name="android:scaleType">fitCenter</item>
+		<item name="android:focusable">false</item>
+		<item name="android:focusableInTouchMode">false</item>
+	</style>
+	
+	<style name="LayoutForEventIconStyle">
+		<item name="android:layout_width">45dip</item>
+		<item name="android:layout_height">40dip</item>
+		<item name="android:layout_margin">2dip</item>
+		<item name="android:layout_weight">0</item>
+	</style>
+
+	<style name="MyTheme" parent="android:Theme.NoTitleBar">
+	    <item name="@android:panelFullBackground">@android:color/background_light</item>
+        <item name="@android:panelColorBackground">@android:color/background_light </item>
+        <item name="@android:panelBackground">@android:color/background_light</item>
+        <item name="@android:textColor">@android:color/primary_text_dark</item>
+     </style>
+     
+     <style name="MyTheme2" parent="android:Theme.NoTitleBar">
+     </style>
+
+	
+</resources>

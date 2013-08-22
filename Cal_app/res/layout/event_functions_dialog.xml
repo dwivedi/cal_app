@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="45dip"
+    android:paddingRight="45dip" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_header"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/title_layout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/eventTitle"
+                style="@style/DialogText.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/dialog_title"
+                android:paddingLeft="8dip"
+                android:paddingRight="8dip"
+                android:text="@string/eventFunctionsTitle" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="2dip"
+        android:background="@drawable/dialog_header_divider"
+        android:orientation="vertical" >
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" 
+        android:gravity="center"
+        android:background="@drawable/dialog_center">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"            
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/btnShowDetails"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"  
+                android:text="@string/showDetails"
+                style="@style/MainButton"/>
+
+            <Button
+                android:id="@+id/btnChangeEvent"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"                  
+                android:text="@string/changeEvent"                
+                style="@style/MainButton"/>
+
+            <Button
+                android:id="@+id/planForward"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:drawableLeft="@drawable/plan_forward"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"                  
+                android:text="@string/planForward"
+                style="@style/MainButton"/>
+
+            <Button
+                android:id="@+id/planBackward"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:drawableLeft="@drawable/plan_backward"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"               
+                android:text="@string/planBackward"
+                style="@style/MainButton" />
+
+            <Button
+                android:id="@+id/btnDelete"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"                 
+                android:text="@string/Delete" 
+                style="@style/MainButton"/>
+
+            <Button
+                android:id="@+id/btnCancel"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dip"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"                 
+                android:text="@string/Cancel" 
+                style="@style/MainButton"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/dialog_footer"
+        android:orientation="horizontal" >
+    </LinearLayout>
+
+</LinearLayout>

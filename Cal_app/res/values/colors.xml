@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="eventNameTextColor">#000000</color> 
+    <color name="eventNameTemplateTextColor">#441908</color> 
+     <color name="eventNameRedTextColor">#600312</color>     
+	<color name="orange">#10FF8000</color>
+    <color name="headerTextColor">#ffffff</color>
+    <color name="mainAreaColor">#e9e9e9</color>
+    <color name="middleTextColor">#000000</color>
+    <color name="whiteAreaColor">#FFFFFFFF</color>
+    <color name="Black">#000000</color>
+    <color name="tablesBackground">#ffffff</color>  
+    <color name="delimeterBackground">#000000</color>
+    <color name="headerButtonColor">#ffffff</color>
+    <color name="smallButtonColor">#0000ff</color>
+    <color name="commentTextColor">#441908</color>
+    <color name="notificationTextColor">#441908</color>
+    <color name="textColor">#441908</color>
+    <color name="dividerColor">#7d7d7d</color>
+    <color name="transparent">#00000000</color> 
+    <color name="facebookbtn">#7183b5</color> 
+    <color name="radioBtnMoreTextColor">#3A1608</color> 
+    <color name="mainBtnTextColor">#220904</color> 
+    <color name="btnTextColor">#FFFFFFFF</color>     
+    <color name="barDetailsHeaderInfoTextColor">#5A2B17</color> 
+
+    <color name="hoursTextColor">#441908</color> 
+    
+    <color name="dialogTitleTextColor">#600312</color> 
+    <color name="dialogBtnTextColor">#220904</color> 
+    
+    <color name="translucentColor">#29441908</color> 
+    
+    <color name="StartScreenBackColor">#000000</color>
+    <color name="LoginScreenBackColor">#000000</color>   
+    <color name="lightMainTextColor">#FF603411</color>  
+    <color name="lightTextColor2">#f9ac78</color> 
+    <color name="lightTextColor3">#ffA473</color> 
+    <color name="PromoCountButtonColor">#FFFFFFFF</color>  
+    <color name="LinkTextColor">#FF803411</color>   
+    <color name="PageFaddingAreaColor">#f3aca4a6</color>   
+    <color name="EditTextFontColor">#070606</color>
+
+</resources>
+

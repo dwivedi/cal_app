@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/dialog_title"
+    android:padding="0dip" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:orientation="vertical"
+        android:padding="0dip" >
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="45dip"
+            android:background="@drawable/header_bkgnd"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingBottom="5dip" >
+
+            <Button
+                android:id="@+id/btnBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/back_button_style"
+                android:gravity="right"
+                android:paddingBottom="5dp"
+                android:paddingLeft="15dp"
+                android:paddingRight="10dip"
+                android:paddingTop="5dp"
+                android:text="@string/Cancel" >
+            </Button>
+        </RelativeLayout>
+
+        <ScrollView
+            android:id="@+id/scrollview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_margin="0dip" >
+
+            <TableLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="12dip"
+                android:paddingRight="12dip" >
+
+                <TableRow style="@style/TableRowNotRoundedStyle" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/InfoNameFontRed"
+                            android:text="@string/eventDetailsPicture" />
+
+                        <LinearLayout 
+                            style="@style/LayoutForEventIconStyle" >
+                            <ImageView
+                                android:id="@+id/eventIcon"
+                                style="@style/EventIconStyle"
+                                android:src="@drawable/ic_bike" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right|center_vertical"
+                        android:orientation="horizontal" >
+
+                        <TextView
+                            style="@style/InfoNameFontRed"
+                            android:text="@string/eventDetailsColor" 
+                            android:paddingRight="5dip"/>
+
+                        <LinearLayout
+                            android:id="@+id/eventColor"
+                            android:layout_width="80dip"
+                            android:layout_height="60dip"
+                            android:layout_margin="5dip"
+                            android:background="#000000" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow style="@style/TableRowNotRoundedStyle" >
+
+                    <TextView
+                        style="@style/InfoNameFontRed"
+                        android:text="@string/eventDetailsWhat" />
+
+                    <EditText
+                        android:id="@+id/eventName"
+                        style="@style/EditTextFont"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:inputType="textPersonName"
+                        android:text="" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow style="@style/TableRowNotRoundedStyle" >
+
+                    <TextView
+                        style="@style/InfoNameFontRed"
+                        android:text="@string/eventDetailsTimeStart" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal" >
+
+                        <EditText
+                            android:id="@+id/startTime"
+                            style="@style/EditTextFont"
+                            android:layout_width="65dip"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0"
+                            android:capitalize="none"
+                            android:editable="false"
+                            android:focusable="false"
+                            android:inputType="none"
+                            android:text="15:00" >
+                        </EditText>
+
+                        <LinearLayout
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:gravity="center_vertical|right"
+                            android:orientation="horizontal" >
+
+                            <TextView
+                                style="@style/InfoNameFontRed"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginRight="5dp"
+                                android:text="@string/eventDetailsTimeFinish" />
+
+                            <EditText
+                                android:id="@+id/finishTime"
+                                style="@style/EditTextFont"
+                                android:layout_width="65dip"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="0dp"
+                                android:layout_weight="0"
+                                android:editable="false"
+                                android:focusable="false"
+                                android:inputType="none"
+                                android:text="1:45" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow
+                    android:id="@+id/tablerowSetDate"
+                    style="@style/TableRowNotRoundedStyle" 
+                    android:paddingTop="10dip"
+                    android:paddingBottom="10dip"
+                    >
+
+                    <TextView
+                        style="@style/InfoNameFontRed"
+                        android:text="@string/eventDetailsDate" />
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="right|center"
+                        >
+
+                        <TextView
+                            android:id="@+id/evenDate"
+                            style="@style/InfoNameFont"
+                            android:layout_width="fill_parent"
+                            android:layout_height="fill_parent"
+                            android:layout_weight="1"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:gravity="left|center"
+                            android:text="novembernovembernovember" >
+                        </TextView>
+
+                        <Button
+                            android:id="@+id/btnSetDate"
+                            style="@style/ArrowButton"
+                            android:clickable="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false" />
+                    </LinearLayout>
+                </TableRow>
+
+                <TableRow style="@style/TableRowNotRoundedStyle" >
+
+                    <TextView
+                        style="@style/InfoNameFontRed"
+                        android:text="@string/eventDetailsRepeat" />
+
+                    <EditText
+                        android:id="@+id/repeatDays"
+                        style="@style/EditTextFont"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:padding="6dip"
+                        android:text="" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow style="@style/TableRowNotRoundedStyle" >
+
+                    <TextView
+                        style="@style/InfoNameFontRed"
+                        android:text="@string/eventDetailsReminder" />
+
+                    <EditText
+                        android:id="@+id/reminderTime"
+                        style="@style/EditTextFont"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:editable="false"
+                        android:focusable="false"
+                        android:inputType="none"
+                        android:text="" >
+                    </EditText>
+                </TableRow>
+
+                <TableRow
+                    style="@style/TableRowNotRoundedStyle"
+                    android:gravity="top" >
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="fill_parent"
+                        android:gravity="top" >
+
+                        <TextView
+                            style="@style/InfoNameFontRed"
+                            android:text="@string/eventDetailsDescription" />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/eventDescript"
+                        style="@style/EditTextFont"
+                        android:layout_width="fill_parent"
+                        android:layout_height="80dp"
+                        android:layout_weight="1"
+                        android:gravity="top"
+                        android:inputType="textMultiLine"
+                        android:scrollbars="vertical"
+                        android:singleLine="false"
+                        android:text="" >
+                    </EditText>
+                </TableRow>
+
+                <LinearLayout
+                    android:id="@+id/placeForButtons"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical" 
+                    android:paddingTop="10dip">
+
+<!--                    <LinearLayout style="@style/DividerLayout" />   -->
+
+                    <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center" >
+
+                        <Button
+                            android:id="@+id/btnSave"
+                            style="@style/SaveButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:text="@string/Save" />
+                    </LinearLayout>
+
+<!--                      <LinearLayout
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal" >
+
+                        <Button
+                            android:id="@+id/planBackward"
+                            style="@style/MainButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/plan_backward"
+                            android:text="@string/planBackward" />
+
+                        <Button
+                            android:id="@+id/planForward"
+                            style="@style/MainButton"
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:drawableLeft="@drawable/plan_forward"
+                            android:text="@string/planForward" />
+                    </LinearLayout>-->
+                </LinearLayout>
+            </TableLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</RelativeLayout>

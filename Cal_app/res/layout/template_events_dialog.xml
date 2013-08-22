@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" 
+	android:layout_height="fill_parent"
+	android:orientation="vertical" 
+	android:padding="40dp">
+	<LinearLayout android:orientation="vertical"
+		android:background="@drawable/dialog_header" android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+
+		<LinearLayout android:id="@+id/title_layout"
+			android:orientation="vertical" android:layout_width="fill_parent"
+			android:layout_height="wrap_content"
+			android:gravity="center">
+		<TextView style="@style/DialogText.Title" android:id="@+id/eventTitle"
+		    android:text="@string/eventsTemplates"
+				android:paddingRight="8dip" android:paddingLeft="8dip"
+				android:background="@drawable/dialog_title" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" />
+		    
+		</LinearLayout>
+	</LinearLayout>
+	<LinearLayout android:id="@+id/content"
+		android:orientation="vertical" android:background="@drawable/dialog_header_divider"
+		android:layout_width="fill_parent" android:layout_height="2dip">
+		</LinearLayout>			
+       	<LinearLayout android:id="@+id/placeForEventsList"
+			android:layout_weight="1" android:orientation="vertical"
+			android:background="@drawable/dialog_center"
+			android:layout_width="fill_parent" android:layout_height="fill_parent"
+			android:paddingTop="10dp" android:paddingLeft="10dp"
+			android:paddingRight="10dp">
+
+		</LinearLayout>
+	<LinearLayout android:orientation="horizontal"
+		android:background="@drawable/dialog_footer" android:layout_width="fill_parent"
+		android:layout_height="wrap_content">
+	</LinearLayout>
+</LinearLayout>

@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout style="@style/HeaderPanel">"
+
+        <ImageButton
+            android:id="@+id/btnDayBack"
+            android:layout_width="65dip"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:paddingRight="50dip"
+            android:src="@drawable/arrow_back" 
+            android:paddingLeft="20dp"
+            android:layout_marginLeft="0dp"
+            android:layout_alignParentLeft="true"
+            >
+        </ImageButton>
+        
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingRight="10dip"            
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            android:gravity="right"
+            android:text="@string/Back"
+            android:background="@drawable/back_button_style"
+            android:visibility="gone"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            >
+        </Button>  
+
+        <LinearLayout
+            android:id="@+id/headerTimeDate"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:layout_marginLeft="35dp"
+            android:layout_marginRight="35dp"
+            android:layout_centerInParent="true" >
+            
+
+            <TextView
+                android:id="@+id/time"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_weight="1"
+                style="@style/HeaderTextTime"
+                android:layout_marginBottom="0dip"                
+                android:text="time" >
+            </TextView>
+
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:gravity="center"
+                android:singleLine="true"
+                style="@style/HeaderTextDate"
+                android:text="monday" >
+            </TextView>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btnDayForward"
+            android:layout_width="65dip"
+            android:layout_height="fill_parent"
+            android:background="#00000000"
+            android:paddingLeft="50dip"
+            android:src="@drawable/arrow_forward"           
+            android:paddingRight="20dp" 
+            android:layout_marginRight="0dp"
+            android:layout_alignParentRight="true">
+        </ImageButton>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollview"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="0"
+        android:fadingEdgeLength="30dip"
+        android:fadingEdge="vertical"
+        android:cacheColorHint="#ff000000" android:background="@color/PageFaddingAreaColor"
+        >
+        <!-- android:overScrollMode="always" -->
+        
+        <RelativeLayout
+            android:id="@+id/calendarBkgPlace"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/calendar_bgd_1" 
+            android:padding="0dip" 
+            android:layout_margin="0dip" >
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:padding="0dip" 
+                android:layout_margin="0dip"                
+                android:baselineAligned="false"
+                android:orientation="horizontal" >
+
+
+                <RelativeLayout
+                    android:id="@+id/placeForEvents"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content" 
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/timeLinesContainer"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="0dip"
+                        android:orientation="vertical" 
+                        android:gravity="right">
+                    </LinearLayout>
+                </RelativeLayout>            
+            </LinearLayout>
+            
+            <FrameLayout
+                android:id="@+id/timeMarker"
+                android:layout_width="fill_parent"
+                android:layout_height="4dp"
+                android:layout_marginTop="50dip"
+                android:background="@drawable/time_marker" >
+
+            </FrameLayout>
+                        <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="0dip"
+                android:paddingLeft="10dip"
+                >
+
+                <LinearLayout
+                    android:id="@+id/timeGridContainer2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"              
+                    android:gravity="right"
+                    android:orientation="vertical" >
+                </LinearLayout>
+            </FrameLayout>
+
+        </RelativeLayout>
+    </ScrollView>
+
+</LinearLayout>

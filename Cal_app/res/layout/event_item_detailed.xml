@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:baselineAligned="false"
+    android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:paddingTop="5dip"
+	android:paddingBottom="5dip"
+	android:layout_marginBottom="2dip"
+	>
+
+	<LinearLayout 
+	    android:layout_width="0dip"
+		android:layout_height="fill_parent" 
+		android:orientation="horizontal"
+		android:gravity="center_vertical" 
+		android:layout_weight="1">
+
+		<LinearLayout android:layout_width="fill_parent"
+			android:layout_height="wrap_content" android:orientation="vertical"
+			android:layout_alignParentLeft="true"
+			>
+
+			<TextView android:id="@+id/eventName" android:layout_width="wrap_content"
+				android:layout_height="wrap_content" android:text="name" style="@style/EventTemplateNameFont"
+				android:focusable="false" android:focusableInTouchMode="false"
+				android:singleLine="true">
+			</TextView>
+				
+			<LinearLayout android:layout_width="fill_parent"
+				android:layout_height="fill_parent" android:orientation="horizontal"
+				android:layout_marginRight="15dip"
+				android:layout_marginTop="0dip"
+				>			
+			    <TextView android:id="@+id/eventDate" android:layout_width="wrap_content"
+					android:layout_height="wrap_content" android:text="date" style="@style/EventDetailsFont"
+					android:focusable="false" android:focusableInTouchMode="false" />
+	
+				<TextView android:id="@+id/eventTime" 
+				    android:layout_width="fill_parent"
+					android:layout_height="wrap_content" 
+					android:text="time" 
+					style="@style/EventTimeFont"
+					android:focusable="false" 
+					android:focusableInTouchMode="false"
+					android:gravity="center_vertical|right"	
+					
+					/>
+			</LinearLayout>		
+		
+		</LinearLayout>
+
+
+
+	</LinearLayout>
+
+
+	   <LinearLayout
+	       style="@style/LayoutForEventIconStyle"
+            >
+            <ImageView
+                android:id="@+id/eventIcon"
+                android:src="@drawable/ic_train" 
+                style="@style/EventIconStyle"        
+                />
+	   </LinearLayout>
+        
+
+
+</LinearLayout>

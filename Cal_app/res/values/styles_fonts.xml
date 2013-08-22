@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?> 
+<resources>
+    
+    <style name="DateTimePickerFont" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/Black</item>
+    </style>
+ 
+    <style name="HeaderText" parent="@android:style/TextAppearance.Medium">        
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/headerTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginBottom">0dip</item>
+        <item name="android:layout_centerVertical">true</item>        
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>
+    </style>   
+    
+    <style name="HeaderTextDate" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/headerTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginTop">0dip</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>        
+    </style>   
+    
+    <style name="HeaderTextTime" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/headerTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_marginLeft">5dip</item>
+        <item name="android:layout_marginBottom">10dip</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>
+    </style>     
+    
+     <style name="HoursText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/hoursTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>		
+    
+    <style name="MinutesText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/hoursTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+         <item name="android:gravity">right</item>
+         <item name="android:paddingTop">0dip</item>
+         <item name="android:paddingBottom">10dip</item>
+         <item name="android:typeface">sans</item>
+    </style>	
+    
+    <style name="MinutesInProgressText" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/eventNameTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+         <item name="android:gravity">right</item>
+         <item name="android:paddingTop">0dip</item>
+          <item name="android:paddingBottom">0dip</item>
+          <item name="android:typeface">sans</item>
+    </style>	
+    
+    
+    <style name="InfoNameFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/Black</item>
+        <item name="android:textStyle"></item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="InfoNameFontRed" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/eventNameRedTextColor</item>
+        <item name="android:textStyle"></item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+        
+    <style name="EventNameFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/eventNameTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="EventTemplateNameFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/eventNameRedTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="CateogoryTemplateNameFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/eventNameRedTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="EventDetailsFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/eventNameTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">fill_parent</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+         <item name="android:gravity">right</item>
+         <item name="android:paddingTop">0dip</item>
+          <item name="android:paddingBottom">0dip</item>
+          <item name="android:typeface">sans</item>
+    </style>   
+    
+    <style name="EventTimeFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/eventNameRedTextColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:clickable">false</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="StandartBoldFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textColor">@color/textColor</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="EditTextFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/EditTextFontColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>
+    </style>
+    
+    <style name="TimeDialogNamesFont" parent="@android:style/TextAppearance.Medium">">
+        <item name="android:textSize">11sp</item>
+        <item name="android:textColor">@color/eventNameRedTextColor</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textColorLink">@color/LinkTextColor</item>
+        <item name="android:typeface">sans</item>
+    </style>    
+     
+    
+       
+</resources>

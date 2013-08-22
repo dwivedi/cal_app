@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_add"
+        android:icon="@drawable/add_dark"
+        android:title="@string/Add_Event"/>
+
+    <item
+        android:id="@+id/menu_show_all"
+        android:icon="@drawable/showall_dark"
+        android:title="@string/Show_All"/>
+
+    <item
+        android:id="@+id/menu_show_about"
+        android:icon="@drawable/info_dark"
+        android:title="@string/About"/>
+
+    <item
+        android:id="@+id/menu_show_settings"
+        android:icon="@drawable/settings_dark"
+        android:title="@string/Settings"/>
+
+</menu>

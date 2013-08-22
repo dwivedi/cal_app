@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    
+    android:layout_width="70dip"
+    android:layout_height="wrap_content"
+    android:minWidth="70dip"   
+    android:maxWidth="70dip"   
+    android:padding="0dip"
+    android:background="@drawable/event_bkg"
+    android:gravity="center"
+    >
+    
+
+    <ImageView
+        android:id="@+id/eventIcon"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        android:layout_margin="2dip"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_train" 
+        android:clickable="false"  />
+</LinearLayout>
