@@ -144,5 +144,7 @@
    <string name="enable_template_changes">Enable template changes</string>
    
    <string name="enable_sounds_yes_no">Enable sounds Yes/No</string>
+   
+   <string name="your_image">Your Image</string>
 </resources>
 

@@ -205,6 +205,8 @@ public class EventsContentProvider extends ContentProvider {
         eventsProjectionMap.put(REPEAT_DAYS, REPEAT_DAYS);  
         eventsProjectionMap.put(REMINDER, REMINDER);          
 
+        
+        
     }
 }
 

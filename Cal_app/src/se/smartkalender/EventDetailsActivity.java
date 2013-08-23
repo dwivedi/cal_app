@@ -2,6 +2,7 @@ package se.smartkalender;
 
 import java.util.Date;
 
+ 
 import se.smartkalender.globals;
 import se.smartkalender.dialogs.ColorPickerActivity;
 import se.smartkalender.dialogs.CustomAlertDialog;
@@ -17,10 +18,16 @@ import se.smartkalender.R;
 import yuku.ambilwarna.AmbilWarnaDialog;
 import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.Cursor;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.text.format.DateFormat;
 import android.util.SparseBooleanArray;
 import android.view.LayoutInflater;
@@ -36,11 +43,15 @@ import android.widget.TableRow;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
-public class EventDetailsActivity extends Activity implements android.widget.DatePicker.OnDateChangedListener, View.OnClickListener {
+public class EventDetailsActivity extends Activity implements   View.OnClickListener {
 	private static final int RESULT_PLAN_BACKWARD = 0;
 	private static final int RESULT_PLAN_FORWARD = 1;
 	private static final int PICK_COLOR_REQUEST = 2;
+	private static final int PICK_CAMARA_REQUEST = 3;
+	private static final int PICK_GALLARE_REQUEST = 4;
+	
 	private SmartCalendarEvent event;
 	private boolean readOnly;
 	private LinearLayout eventColor;
@@ -190,6 +201,10 @@ public class EventDetailsActivity extends Activity implements android.widget.Dat
 	}
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    	
+    	/**
+    	 * THIS FOR THE TAKING COLOR
+    	 */
 	    if (requestCode == PICK_COLOR_REQUEST) {
 		    if (resultCode == RESULT_OK)
 		    {
@@ -199,6 +214,42 @@ public class EventDetailsActivity extends Activity implements android.widget.Dat
     			updateView();	
 		    }
 	    }
+	    
+	    /**
+	     * 
+	     */
+	     
+		Bitmap photo = null;
+		if (resultCode == Activity.RESULT_OK) {
+			switch (requestCode) {
+			case PICK_CAMARA_REQUEST:
+
+				photo = (Bitmap) data.getExtras().get("data");
+
+				break;
+
+			case PICK_GALLARE_REQUEST:
+
+				Uri selectedImage = data.getData();
+				String[] filePathColumn = { MediaStore.Images.Media.DATA };
+
+				Cursor cursor = getContentResolver().query(selectedImage,
+						filePathColumn, null, null, null);
+				cursor.moveToFirst();
+
+				int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+				String filePath = cursor.getString(columnIndex);
+				cursor.close();
+
+				photo = BitmapFactory.decodeFile(filePath);
+				break;
+
+			default:
+				break;
+			}
+ 
+		}
+	
     }
 
    	/*
@@ -226,15 +277,14 @@ public class EventDetailsActivity extends Activity implements android.widget.Dat
     */
 	public View.OnClickListener eventIconClickListener = new View.OnClickListener() {
         public void onClick(View v) {
-        	saveTextInTextBoxes();
+    /*    	saveTextInTextBoxes();
+        	
+        
         	
         	final CustomListView iconsList = new CustomListView(EventDetailsActivity.this);       	
             iconsList.setAdapter(new IconsArrayAdapter(EventDetailsActivity.this, R.layout.icon_list_item, globals.iconsIds));
             iconsList.setChoiceMode(ListView.CHOICE_MODE_NONE);	   
-            /*SparseBooleanArray checkedItemPositions = iconsList.getCheckedItemPositions();
-            for (int i = 0; i < globals.iconsIds.size(); i++) {
-                if (event.getIconId() == globals.iconsIds.get(i))  checkedItemPositions.put(i, true);
-            }*/              
+                       
         	CustomAlertDialog.Builder alt_bld = new CustomAlertDialog.Builder(EventDetailsActivity.this);
         	alt_bld.setContentView(iconsList);
             alt_bld.setTitle(getString(R.string.chooseIcon));
@@ -251,11 +301,82 @@ public class EventDetailsActivity extends Activity implements android.widget.Dat
         		}
 
         	};	
+        	iconsList.setOnItemClickListener(itemClickListener);*/
+        	
+       	
+        	saveTextInTextBoxes();
+        	
+         	LayoutInflater inflater = LayoutInflater.from(EventDetailsActivity.this);
+        	View view = inflater.inflate(R.layout.dwivedi_change_icon_dialog_view, null);
+        
+        	
+        	final CustomListView iconsList = (CustomListView) view.findViewById(R.id.listViewIconList);    	
+            iconsList.setAdapter(new IconsArrayAdapter(EventDetailsActivity.this, R.layout.icon_list_item, globals.iconsIds));
+            iconsList.setChoiceMode(ListView.CHOICE_MODE_NONE);	   
+                       
+        	CustomAlertDialog.Builder alt_bld = new CustomAlertDialog.Builder(EventDetailsActivity.this);
+        	alt_bld.setContentView(view);
+            alt_bld.setTitle(getString(R.string.chooseIcon));
+            final CustomAlertDialog dlg = alt_bld.create();     
+            dlg.show();
+            
+        	OnItemClickListener itemClickListener = new OnItemClickListener() {
+        		@Override
+        		public void onItemClick(AdapterView<?> a, View v, int position,
+        				long id) {
+        			event.setIconId(globals.getIconPath((Integer)v.getTag()));
+        			updateView();		
+        			dlg.dismiss();
+        		}
+
+        	};	
         	iconsList.setOnItemClickListener(itemClickListener);
+        	
+        	final Button changeButton = (Button) view.findViewById(R.id.btnYourImage);   
+        	changeButton.setOnClickListener(changeImageClickListener);
+
         }
 	};
 	
 	
+	public View.OnClickListener changeImageClickListener = new View.OnClickListener() {
+        public void onClick(View v) {
+        	
+        	Toast.makeText(getApplicationContext(), "change Image", Toast.LENGTH_LONG).show();
+        	
+        	AlertDialog.Builder builder = new AlertDialog.Builder(EventDetailsActivity.this);
+    		builder.setTitle("Image ");
+    		builder.setPositiveButton("Take Photo",
+    				new DialogInterface.OnClickListener() {
+
+    					@Override
+    					public void onClick(DialogInterface dialog, int which) {
+
+    						Intent cameraIntent = new Intent(
+    								android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+    						startActivityForResult(cameraIntent, PICK_CAMARA_REQUEST);
+    						dialog.dismiss();
+    					}
+    				});
+    		builder.setNegativeButton("Choose Existing",
+    				new DialogInterface.OnClickListener() {
+
+    					@Override
+    					public void onClick(DialogInterface dialog, int which) {
+    						dialog.dismiss();
+
+    						Intent galleryIntent = new Intent(
+    								Intent.ACTION_PICK,
+    								android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+    						startActivityForResult(galleryIntent, PICK_GALLARE_REQUEST);
+    					}
+    				});
+
+    		builder.create().show();
+
+         }
+	};
 	public View.OnClickListener startTimeClickListener = new View.OnClickListener() {
         public void onClick(View v) {
         	showTimePickerDlg(v);
@@ -421,13 +542,10 @@ public class EventDetailsActivity extends Activity implements android.widget.Dat
 	                    });
 	    alt_bld.show();     
 	}
+
+	 
 	
-	@Override
-	public void onDateChanged(android.widget.DatePicker view, int year,
-			int monthOfYear, int dayOfMonth) {
-		// TODO Auto-generated method stub
-		
-	}
+	 
 
 
 

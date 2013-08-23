@@ -84,6 +84,7 @@
                             android:paddingRight="5dip"/>
 
                         <LinearLayout
+                            android:orientation="horizontal"
                             android:id="@+id/eventColor"
                             android:layout_width="80dip"
                             android:layout_height="60dip"
