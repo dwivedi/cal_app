@@ -1,26 +1,21 @@
 package se.smartkalender.dialogs;
 
-import java.util.Date;
-
 import se.smartkalender.EventDetailsActivity;
 import se.smartkalender.EventsManager;
+import se.smartkalender.R;
 import se.smartkalender.globals;
 import se.smartkalender.listviews.EventsListView;
 import se.smartkalender.types.SmartCalendarEvent;
-
-import se.smartkalender.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.widget.TextView;
 import android.widget.AdapterView;
-import android.widget.EditText;
-import android.widget.LinearLayout;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.TextView;
 
 public class EventsTemplateDialog extends Activity {
 	@Override

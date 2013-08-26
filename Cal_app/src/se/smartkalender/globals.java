@@ -54,6 +54,9 @@ public class globals {
 		monthsFull = context.getResources().getStringArray(R.array.monthsFull);	
 		iconsPaths = context.getResources().getStringArray(R.array.event_icons_paths);
 		iconsIds = getIconsIds(context, context.getResources().getStringArray(R.array.event_icons_paths));
+		/**
+		 * Upload all the event to the event view holder
+		 */
 		EventsManager.loadEventsFromTemplateFileConfig(context);
 		EventsManager.extractEventsFromDB(context);
 		

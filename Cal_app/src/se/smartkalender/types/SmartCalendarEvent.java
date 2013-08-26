@@ -20,6 +20,8 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 	private String iconId = "ic_sunny";
 	private String description = "";
 	private String category = "";
+	private boolean isYourImage = false;
+	private String yourImagePath = "NON"; // defult image path
 	
 	public SmartCalendarEvent(int id, String name, String iconId, Integer color, Date date) {
 		this.name = name;
@@ -29,7 +31,7 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 		this.color = color;
 	}
 	
-	public SmartCalendarEvent(int id, String name, String iconId, Integer color, Date date, Date startTime, Date finishTime) {
+	public SmartCalendarEvent(int id, String name, String iconId, Integer color, Date date, Date startTime, Date finishTime,boolean isYourImage,String yourImagePath) {
 		this.name = name;
 		this.date = date;	
 		this.startTime = startTime;	
@@ -39,6 +41,8 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 		this.iconId = iconId;
 		this.id = id;
 		this.color = color;
+		this.isYourImage = isYourImage;
+		this.yourImagePath = yourImagePath;
 	}
 	
 	public SmartCalendarEvent(SmartCalendarEvent event) {
@@ -55,6 +59,8 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 		this.description = event.getDesciption();
 		this.reminderTime = event.reminderTime;
 		this.category = event.category;
+		this.isYourImage = event.getYourImageFlag();
+		this.yourImagePath =event.getYourImagePath();
 	}
 
 	public SmartCalendarEvent(SmartCalendarEvent event, int id) {
@@ -62,6 +68,12 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 		this.id = id;	
 	}
 
+	public boolean getYourImageFlag(){
+		return isYourImage;
+	}
+	public void setYourImageFlag(boolean isYourImage) {
+		this.isYourImage = isYourImage;
+	}
 	public int getColor() {
 		return color;
 	}
@@ -194,5 +206,12 @@ public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
 				return 1;	
 		}
 		return -1;
+	}
+
+	public void setYourImagePath(String filePath) {
+ 		this.yourImagePath = filePath;
+	}
+	public String getYourImagePath( ) {
+ 		return this.yourImagePath ; 
 	}
 }

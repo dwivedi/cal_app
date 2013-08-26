@@ -54,6 +54,10 @@ public class EventsContentProvider extends ContentProvider {
 	public static final String REPEAT_DAYS = "repeat";
 
 	public static final String REMINDER = "remind";
+
+	public static final String IS_YOUR_IMAGE = "is_your_image";
+
+	public static final String YOUR_IMAGE_PATH = "your_image_path";
 	
 
     private static HashMap<String, String> eventsProjectionMap;
@@ -78,7 +82,9 @@ public class EventsContentProvider extends ContentProvider {
                     START_TIME  + " INTEGER," + 
             		FINISH_TIME  + " INTEGER," +
             		REPEAT_DAYS  + " LONGTEXT," + 
-            		REMINDER  + " INTEGER" + 
+            		REMINDER  + " INTEGER," + 
+            		IS_YOUR_IMAGE  + " INTEGER," + 
+            		YOUR_IMAGE_PATH  + " LONGTEXT" + 
             		");");
         }
 
@@ -204,6 +210,8 @@ public class EventsContentProvider extends ContentProvider {
         eventsProjectionMap.put(FINISH_TIME, FINISH_TIME);  
         eventsProjectionMap.put(REPEAT_DAYS, REPEAT_DAYS);  
         eventsProjectionMap.put(REMINDER, REMINDER);          
+        eventsProjectionMap.put(IS_YOUR_IMAGE, IS_YOUR_IMAGE);          
+        eventsProjectionMap.put(YOUR_IMAGE_PATH, YOUR_IMAGE_PATH);          
 
         
         

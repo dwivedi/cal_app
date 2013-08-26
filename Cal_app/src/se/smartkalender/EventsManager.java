@@ -39,7 +39,8 @@ public class EventsManager {
 			EventsContentProvider.ICON_ID, EventsContentProvider.COLOR,
 			EventsContentProvider.DATE, EventsContentProvider.START_TIME,
 			EventsContentProvider.FINISH_TIME, EventsContentProvider.REMINDER,
-			EventsContentProvider.REPEAT_DAYS, };
+			EventsContentProvider.REPEAT_DAYS,EventsContentProvider.IS_YOUR_IMAGE,
+			EventsContentProvider.YOUR_IMAGE_PATH, };
 
 	public static ArrayList<SmartCalendarEvent> getAllEvents() {
 		return events;
@@ -246,6 +247,8 @@ public class EventsManager {
 				.getTime());
 		values.put(EventsContentProvider.REPEAT_DAYS, event.getRepeatDays());
 		values.put(EventsContentProvider.REMINDER, event.getReminder());
+		values.put(EventsContentProvider.IS_YOUR_IMAGE, event.getYourImageFlag()?1:0);
+		values.put(EventsContentProvider.YOUR_IMAGE_PATH, event.getYourImagePath());
 
 		cr.insert(uri, values);
 
@@ -298,9 +301,20 @@ public class EventsManager {
 					Integer reminderTime = cursor
 							.getInt(cursor
 									.getColumnIndexOrThrow(EventsContentProvider.REMINDER));
+					
+					boolean isYourImage = cursor
+					.getInt(cursor
+							.getColumnIndexOrThrow(EventsContentProvider.IS_YOUR_IMAGE))==1?true:false;
+			
+					String yourImagePath = cursor
+					.getString(cursor
+							.getColumnIndexOrThrow(EventsContentProvider.YOUR_IMAGE_PATH));
+			
+			
+					
 
 					SmartCalendarEvent e = new SmartCalendarEvent(id, name,
-							iconId, color, date, startTime, finishTime);
+							iconId, color, date, startTime, finishTime,isYourImage,yourImagePath);
 					e.setDescription(desc);
 					e.setRepeatDays(repeatDays);
 					e.setReminder(reminderTime);

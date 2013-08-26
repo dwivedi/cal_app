@@ -2,8 +2,6 @@ package se.smartkalender;
 
 import java.util.Date;
 
- 
-import se.smartkalender.globals;
 import se.smartkalender.dialogs.ColorPickerActivity;
 import se.smartkalender.dialogs.CustomAlertDialog;
 import se.smartkalender.dialogs.TemplateCategoriesDialog;
@@ -12,11 +10,6 @@ import se.smartkalender.listviews.IconsArrayAdapter;
 import se.smartkalender.types.SmartCalendarEvent;
 import se.smartkalender.widgets.DatePicker;
 import se.smartkalender.widgets.TimePicker;
-
-import se.smartkalender.R;
-
-import yuku.ambilwarna.AmbilWarnaDialog;
-import yuku.ambilwarna.AmbilWarnaDialog.OnAmbilWarnaListener;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
@@ -34,14 +27,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -202,30 +195,21 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
     	
-    	/**
-    	 * THIS FOR THE TAKING COLOR
-    	 */
-	    if (requestCode == PICK_COLOR_REQUEST) {
-		    if (resultCode == RESULT_OK)
-		    {
-			    Bundle b = data.getExtras();
-			    int mColor = b.getInt("color");
-    			event.setColor(mColor);
-    			updateView();	
-		    }
-	    }
-	    
-	    /**
-	     * 
-	     */
-	     
+    	 
 		Bitmap photo = null;
 		if (resultCode == Activity.RESULT_OK) {
 			switch (requestCode) {
+			case PICK_COLOR_REQUEST:
+
+				  Bundle b = data.getExtras();
+				    int mColor = b.getInt("color");
+	    			event.setColor(mColor);
+	    			updateView();	
+				break;
 			case PICK_CAMARA_REQUEST:
 
 				photo = (Bitmap) data.getExtras().get("data");
-
+				eventIcon.setImageBitmap(photo);
 				break;
 
 			case PICK_GALLARE_REQUEST:
@@ -242,14 +226,17 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 				cursor.close();
 
 				photo = BitmapFactory.decodeFile(filePath);
+				eventIcon.setImageBitmap(photo);
+				event.setYourImageFlag(true);
+				event.setYourImagePath(filePath);
+				event.setIconId("N/A");
+				updateView();
 				break;
 
 			default:
 				break;
 			}
- 
 		}
-	
     }
 
    	/*
@@ -333,50 +320,55 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
         	iconsList.setOnItemClickListener(itemClickListener);
         	
         	final Button changeButton = (Button) view.findViewById(R.id.btnYourImage);   
-        	changeButton.setOnClickListener(changeImageClickListener);
+        	changeButton.setOnClickListener(new OnClickListener() {
+				
+				@Override
+				public void onClick(View v) {
+
+		        	
+		        	Toast.makeText(getApplicationContext(), "change Image", Toast.LENGTH_LONG).show();
+		        	
+		        	AlertDialog.Builder builder = new AlertDialog.Builder(EventDetailsActivity.this);
+		    		builder.setTitle("Image ");
+		    		builder.setPositiveButton("Take Photo",
+		    				new DialogInterface.OnClickListener() {
+
+		    					@Override
+		    					public void onClick(DialogInterface dialog, int which) {
+
+		    						Intent cameraIntent = new Intent(
+		    								android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+		    						startActivityForResult(cameraIntent, PICK_CAMARA_REQUEST);
+		    						dialog.dismiss();
+		    						dlg.dismiss();
+		    					}
+		    				});
+		    		builder.setNegativeButton("Choose Existing",
+		    				new DialogInterface.OnClickListener() {
+
+		    					@Override
+		    					public void onClick(DialogInterface dialog, int which) {
+		    						dialog.dismiss();
+
+		    						Intent galleryIntent = new Intent(
+		    								Intent.ACTION_PICK,
+		    								android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+
+		    						startActivityForResult(galleryIntent, PICK_GALLARE_REQUEST);
+		    						dlg.dismiss();
+		    					}
+		    				});
+
+		    		builder.create().show();
+
+		         					
+				}
+			});
 
         }
 	};
 	
-	
-	public View.OnClickListener changeImageClickListener = new View.OnClickListener() {
-        public void onClick(View v) {
-        	
-        	Toast.makeText(getApplicationContext(), "change Image", Toast.LENGTH_LONG).show();
-        	
-        	AlertDialog.Builder builder = new AlertDialog.Builder(EventDetailsActivity.this);
-    		builder.setTitle("Image ");
-    		builder.setPositiveButton("Take Photo",
-    				new DialogInterface.OnClickListener() {
-
-    					@Override
-    					public void onClick(DialogInterface dialog, int which) {
-
-    						Intent cameraIntent = new Intent(
-    								android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-    						startActivityForResult(cameraIntent, PICK_CAMARA_REQUEST);
-    						dialog.dismiss();
-    					}
-    				});
-    		builder.setNegativeButton("Choose Existing",
-    				new DialogInterface.OnClickListener() {
-
-    					@Override
-    					public void onClick(DialogInterface dialog, int which) {
-    						dialog.dismiss();
-
-    						Intent galleryIntent = new Intent(
-    								Intent.ACTION_PICK,
-    								android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-
-    						startActivityForResult(galleryIntent, PICK_GALLARE_REQUEST);
-    					}
-    				});
-
-    		builder.create().show();
-
-         }
-	};
+	 
 	public View.OnClickListener startTimeClickListener = new View.OnClickListener() {
         public void onClick(View v) {
         	showTimePickerDlg(v);
@@ -387,7 +379,7 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 		saveTextInTextBoxes();
 		
 		int newid = EventsManager.changeEvent(event.getId(), event, EventDetailsActivity.this);
-		event.setId(newid);
+ 		event.setId(newid);
 	}
 	
 	private void saveTextInTextBoxes(){
@@ -438,7 +430,15 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 	void updateView(){
 		eventName.setText(event.getName());
 		eventColor.setBackgroundColor(event.getColor());
-		if (event.getIconId() != null) eventIcon.setImageDrawable(getResources().getDrawable(globals.getIconId(this, event.getIconId())));	
+		if (event.getIconId() != null){ 
+			if (event.getYourImageFlag()) {
+				Bitmap bitmap = BitmapFactory.decodeFile(event.getYourImagePath());
+				eventIcon.setImageBitmap(bitmap);
+ 			}else{
+			eventIcon.setImageDrawable(getResources().getDrawable(globals.getIconId(this, event.getIconId())));
+			}
+		}
+		 
 		startTime.setText(DateFormat.format("kk:mm", event.getStartTime()).toString());
 		startTime.setTag(event.getStartTime());
 		finishTime.setText(DateFormat.format("kk:mm", event.getFinishTime()).toString());	

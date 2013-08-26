@@ -12,6 +12,8 @@ import se.smartkalender.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
@@ -242,7 +244,14 @@ public class SmartCalendarFactory {
         TextView eventName = (TextView) v.findViewById(R.id.eventName);
         eventName.setText(DateFormat.format("kk:mm", e.getStartTime()).toString() + " " + e.getName());
         ImageView eventIcon = (ImageView) v.findViewById(R.id.eventIcon);
-        eventIcon.setImageDrawable(a.getResources().getDrawable(globals.getIconId(a, e.getIconId())));
+         
+        if (e.getYourImageFlag()) {
+         	 Bitmap bitmap = BitmapFactory.decodeFile(e.getYourImagePath());
+				eventIcon.setImageBitmap(bitmap);
+		} else {
+	        eventIcon.setImageDrawable(a.getResources().getDrawable(globals.getIconId(a, e.getIconId())));
+		}
+        
         
         RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams)v.getLayoutParams();
         params.topMargin = getLocationForTime(a, startTime);
