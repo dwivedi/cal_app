@@ -1,12 +1,22 @@
 package se.smartkalender;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 
 import se.smartkalender.dialogs.ColorPickerActivity;
 import se.smartkalender.dialogs.CustomAlertDialog;
 import se.smartkalender.dialogs.TemplateCategoriesDialog;
 import se.smartkalender.listviews.CustomListView;
+import se.smartkalender.listviews.EventIconPOJO;
+import se.smartkalender.listviews.EventImageAdapter;
 import se.smartkalender.listviews.IconsArrayAdapter;
+import se.smartkalender.listviews.YourImageIconAdapter;
 import se.smartkalender.types.SmartCalendarEvent;
 import se.smartkalender.widgets.DatePicker;
 import se.smartkalender.widgets.TimePicker;
@@ -15,6 +25,8 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -44,6 +56,8 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 	private static final int PICK_COLOR_REQUEST = 2;
 	private static final int PICK_CAMARA_REQUEST = 3;
 	private static final int PICK_GALLARE_REQUEST = 4;
+	public static final int DEFULT_ICON_VIEW_TYPE = 0;
+	public static final int YOUR_IMAGE_ICON_VIEW_TYPE = 1;
 	
 	private SmartCalendarEvent event;
 	private boolean readOnly;
@@ -61,7 +75,7 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 	//Button planForward;
 	Button btnBack;
 	DatePicker datePicker;	
-	@Override
+ 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.event_details);		
@@ -226,10 +240,11 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 				cursor.close();
 
 				photo = BitmapFactory.decodeFile(filePath);
-				eventIcon.setImageBitmap(photo);
 				event.setYourImageFlag(true);
+				eventIcon.setImageBitmap(photo);
 				event.setYourImagePath(filePath);
 				event.setIconId("N/A");
+				showYourImageListViewDialogForAdd(filePath);
 				updateView();
 				break;
 
@@ -239,9 +254,52 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 		}
     }
 
-   	/*
+   	private void showYourImageListViewDialogForAdd(final String filePath) {
+		AlertDialog.Builder builder = new AlertDialog.Builder(this);
+		builder.setTitle("Want to add in Your Image List ?");
+		builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				dialog.cancel();
+				
+				
+				addYourImagePathInLocalStorage(filePath);
+				
+				
+			}
+		});
+		builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+			
+			@Override
+			public void onClick(DialogInterface dialog, int which) {
+				// TODO Auto-generated method stub
+				dialog.cancel();
+			}
+		});
+		builder.create().show();
+	}
+
+	protected void addYourImagePathInLocalStorage(String filePath) { 
+		
+		SharedPreferences pref = getSharedPreferences("Dwivedi_Pref", 0);
+		String paths = pref.getString("Paths", "NoN");
+		Editor editor = pref.edit();
+		if (paths.equalsIgnoreCase("NoN")) {
+			editor.putString("Paths", filePath);
+		} else {
+			editor.putString("Paths", paths+","+filePath);
+		}
+		editor.commit();
+		
+ 	}
+	
+	
+
+
+	/*
     
-	public View.OnClickListener eventColorClickListener = new View.OnClickListener() {
+	;public View.OnClickListener eventColorClickListener = new View.OnClickListener() {
         public void onClick(View v) {
    	
         	
@@ -297,9 +355,40 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
         	View view = inflater.inflate(R.layout.dwivedi_change_icon_dialog_view, null);
         
         	
+        	ArrayList<EventIconPOJO> eventIconPOJOs = new ArrayList<EventIconPOJO>();
+        	
         	final CustomListView iconsList = (CustomListView) view.findViewById(R.id.listViewIconList);    	
-            iconsList.setAdapter(new IconsArrayAdapter(EventDetailsActivity.this, R.layout.icon_list_item, globals.iconsIds));
-            iconsList.setChoiceMode(ListView.CHOICE_MODE_NONE);	   
+          //  iconsList.setAdapter(new IconsArrayAdapter(EventDetailsActivity.this, R.layout.icon_list_item, globals.iconsIds));
+            int size = globals.iconsIds.size();
+            for (int i = 0; i < size; i++) {
+            	EventIconPOJO eventIconPOJO = new EventIconPOJO();
+            	eventIconPOJO.setIconId(globals.iconsIds.get(i));
+            	eventIconPOJO.setViewType(DEFULT_ICON_VIEW_TYPE);
+            	eventIconPOJOs.add(eventIconPOJO);
+			}
+            size = globals.iconsPath.size();
+            for (int i = 0; i < size; i++) {
+            	EventIconPOJO eventIconPOJO = new EventIconPOJO();
+            	eventIconPOJO.setImagePath(globals.iconsPath.get(i));
+            	eventIconPOJO.setViewType(YOUR_IMAGE_ICON_VIEW_TYPE);
+            	eventIconPOJOs.add(eventIconPOJO);
+			}
+            
+            iconsList.setChoiceMode(ListView.CHOICE_MODE_NONE);	
+            
+            EventImageAdapter eventImageAdapter = new EventImageAdapter(EventDetailsActivity.this,eventIconPOJOs);
+            iconsList.setAdapter(eventImageAdapter);
+          /*	final CustomListView yourImageIconListView = (CustomListView) view.findViewById(R.id.listViewIconListYourImages);    	
+        	yourImageIconListView.setAdapter(new YourImageIconAdapter(EventDetailsActivity.this, R.layout.icon_list_item, globals.iconsPath));
+        	//yourImageIconListView.setChoiceMode(ListView.CHOICE_MODE_NONE);	
+        	globals.setListViewHeightBasedOnChildren(yourImageIconListView);
+        	TextView yourImageIconTitleTV = (TextView) view.findViewById(R.id.tvListYourImagesTitle);    	
+        	if (yourImageIconListView.getAdapter().getCount()==0) 
+        		yourImageIconTitleTV.setVisibility(View.GONE);
+			else 
+				yourImageIconTitleTV.setVisibility(View.VISIBLE);
+   
+            */
                        
         	CustomAlertDialog.Builder alt_bld = new CustomAlertDialog.Builder(EventDetailsActivity.this);
         	alt_bld.setContentView(view);
@@ -311,7 +400,21 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
         		@Override
         		public void onItemClick(AdapterView<?> a, View v, int position,
         				long id) {
-        			event.setIconId(globals.getIconPath((Integer)v.getTag()));
+        			
+        			
+        			EventIconPOJO eventIconPOJO = (EventIconPOJO)a.getItemAtPosition(position);
+        			if (eventIconPOJO.getViewType() == DEFULT_ICON_VIEW_TYPE) {
+        				event.setIconId(globals.getIconPath((Integer)v.getTag()));
+            			event.setYourImageFlag(false);
+					} else {
+						String filePath = eventIconPOJO.getImagePath();
+						Bitmap photo = BitmapFactory.decodeFile(filePath);
+						event.setYourImageFlag(true);
+						eventIcon.setImageBitmap(photo);
+						event.setYourImagePath(filePath);
+						event.setIconId("N/A");
+					}
+        		 
         			updateView();		
         			dlg.dismiss();
         		}
@@ -329,8 +432,8 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 		        	Toast.makeText(getApplicationContext(), "change Image", Toast.LENGTH_LONG).show();
 		        	
 		        	AlertDialog.Builder builder = new AlertDialog.Builder(EventDetailsActivity.this);
-		    		builder.setTitle("Image ");
-		    		builder.setPositiveButton("Take Photo",
+		    		builder.setTitle("Your Image");
+		    		/*builder.setPositiveButton("Take Photo",
 		    				new DialogInterface.OnClickListener() {
 
 		    					@Override
@@ -342,7 +445,7 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 		    						dialog.dismiss();
 		    						dlg.dismiss();
 		    					}
-		    				});
+		    				});*/
 		    		builder.setNegativeButton("Choose Existing",
 		    				new DialogInterface.OnClickListener() {
 
@@ -434,9 +537,11 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 			if (event.getYourImageFlag()) {
 				Bitmap bitmap = BitmapFactory.decodeFile(event.getYourImagePath());
 				eventIcon.setImageBitmap(bitmap);
+				
  			}else{
 			eventIcon.setImageDrawable(getResources().getDrawable(globals.getIconId(this, event.getIconId())));
-			}
+			
+ 			}
 		}
 		 
 		startTime.setText(DateFormat.format("kk:mm", event.getStartTime()).toString());

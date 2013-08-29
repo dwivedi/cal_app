@@ -15,6 +15,8 @@
                 android:id="@+id/eventIcon"
 			    style="@style/EventIconStyle"
 				android:src="@drawable/ic_bike" 
+				android:layout_height="50dp"
+				android:layout_width="50dp"
 			/>
 		</LinearLayout>
 	</LinearLayout>

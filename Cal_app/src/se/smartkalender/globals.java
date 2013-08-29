@@ -13,9 +13,15 @@ import se.smartkalender.types.SmartCalendarEvent;
 import se.smartkalender.R;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.View.MeasureSpec;
+import android.view.ViewGroup;
+import android.view.ViewGroup.LayoutParams;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class globals {
 	static String[] timeHours;
@@ -44,6 +50,7 @@ public class globals {
 	public static FileHandler logger = null;
 	public static View zoomedView = null;
 	public static Date selectedDay = new Date();
+	public static ArrayList<String> iconsPath;
 		
 	static void init(Context context) {
 		timeHours = context.getResources().getStringArray(R.array.hours);
@@ -54,6 +61,8 @@ public class globals {
 		monthsFull = context.getResources().getStringArray(R.array.monthsFull);	
 		iconsPaths = context.getResources().getStringArray(R.array.event_icons_paths);
 		iconsIds = getIconsIds(context, context.getResources().getStringArray(R.array.event_icons_paths));
+		iconsPath = getPathFromStorage(context);
+		
 		/**
 		 * Upload all the event to the event view holder
 		 */
@@ -65,6 +74,49 @@ public class globals {
 		TheEventWillStartIn = context.getResources().getString(R.string.TheEventWillStartIn);
 		
 	}
+	
+	 public static void setListViewHeightBasedOnChildren(ListView listView) {
+			ListAdapter listAdapter = listView.getAdapter();
+			if (listAdapter == null) {
+				// pre-condition
+				return;
+			}
+
+			int totalHeight = 0;
+			for (int i = 0; i < listAdapter.getCount(); i++) {
+				View listItem = listAdapter.getView(i, null, listView);
+				if (listItem instanceof ViewGroup)
+					listItem.setLayoutParams(new LayoutParams(
+							LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT));
+				listItem.measure(0, 0);
+				totalHeight += listItem.getMeasuredHeight();
+			}
+
+			ViewGroup.LayoutParams params = listView.getLayoutParams();
+			params.height = totalHeight
+					+ (listView.getDividerHeight() * (listAdapter.getCount() - 1))
+					+ 20;
+			listView.setLayoutParams(params);
+		}
+
+	
+	public static ArrayList<String> getPathFromStorage(Context con) {
+		ArrayList<String> pathList = new ArrayList<String>();
+		SharedPreferences pref = con.
+				getSharedPreferences("Dwivedi_Pref", 0);
+		String paths = pref.getString("Paths", "NoN");
+		if (!paths.equalsIgnoreCase("NoN")) {
+			String[] pathsArray = paths.split(",");
+			for (String path : pathsArray) {
+				pathList.add(path);
+
+			}
+
+		}
+		
+		return pathList;
+	}
+ 
 	
 	public static String[] adjustFirstDayOfWeek(String[] inArray){
 		String[] outArray = new String[7];
