@@ -1,56 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical" 
-    >
+    android:orientation="vertical" >
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/dialog_header"
-        android:orientation="vertical" >
+ 
 
-        <LinearLayout
-            android:id="@+id/title_layout"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical" >
-
-            <TextView
-                android:id="@+id/title"
-                style="@style/DialogText.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/dialog_title"
-                android:paddingLeft="8dip"
-                android:paddingRight="8dip" />
-        </LinearLayout>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="fill_parent"
+    <View
+        android:layout_width="match_parent"
         android:layout_height="2dip"
-        android:background="@drawable/dialog_header_divider"
-        android:orientation="vertical" >
-    </LinearLayout>
+        android:layout_marginRight="10dp"
+        android:background="@drawable/dialog_header_divider" />
 
     <LinearLayout
         android:id="@+id/content"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:background="@drawable/dialog_center"
-        android:orientation="vertical" 
-        android:layout_gravity="center">
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/DialogText.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/dialog_title"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" />
 
         <TextView
             android:id="@+id/message"
             style="@style/DialogText"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="5dip" 
-            android:text="hahaha"/>
+            android:padding="5dip"
+            android:text="hahaha" />
     </LinearLayout>
 
     <LinearLayout
@@ -70,14 +56,15 @@
 
         <Button
             android:id="@+id/positiveButton"
+            style="@style/MainButton"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
             android:layout_weight="1"
-            android:maxLines="2"
-            style="@style/MainButton" />
+            android:maxLines="2" />
 
-<!--    <Button
+        
+        <Button
             android:id="@+id/neutralButton"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
@@ -85,15 +72,16 @@
             android:layout_weight="1"
             android:maxLines="2" 
             style="@style/MainButton"/>
--->
+       
+
         <Button
             android:id="@+id/negativeButton"
+            style="@style/MainButton"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
             android:layout_weight="1"
-            android:maxLines="2"
-            style="@style/MainButton" />
+            android:maxLines="2" />
 
         <LinearLayout
             android:id="@+id/rightSpacer"
@@ -109,8 +97,81 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/dialog_footer"
-        android:orientation="horizontal" 
-        android:visibility="gone">
+        android:orientation="horizontal"
+        android:visibility="gone" >
     </LinearLayout>
 
 </LinearLayout>
+
+<!-- <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/event_notification_dialog_bg" >
+
+    <TextView
+        android:id="@+id/title"
+        style="@style/DialogText.Title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:padding="4dp"
+        android:text="Tititle"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <view
+        android:id="@+id/support1"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:layout_below="@+id/title"
+        android:layout_centerHorizontal="true"
+        android:background="#DEDBDC" />
+
+    <ImageView
+        android:id="@+id/imageViewEventIcon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/support1"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="3dp"
+        android:src="@drawable/barn_mini" />
+
+    <TextView
+        android:id="@+id/message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/imageViewEventIcon"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal|center_vertical"
+        android:text="TextView" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/message"
+        android:layout_centerHorizontal="true"
+        android:background="#BBBCAE"
+        android:padding="2dp"
+        android:weightSum="2" >
+
+        <Button
+            android:id="@+id/positiveButton"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:text="Visa" />
+
+        <Button
+            android:id="@+id/negativeButton"
+            style="@style/MainButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:maxLines="2"
+            android:text="Snooze" />
+    </LinearLayout>
+
+</RelativeLayout> -->
