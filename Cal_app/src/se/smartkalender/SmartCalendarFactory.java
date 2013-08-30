@@ -244,10 +244,17 @@ public class SmartCalendarFactory {
         TextView eventName = (TextView) v.findViewById(R.id.eventName);
         eventName.setText(DateFormat.format("kk:mm", e.getStartTime()).toString() + " " + e.getName());
         ImageView eventIcon = (ImageView) v.findViewById(R.id.eventIcon);
-         
+      //&&&&&&&&&&&&&&&&&&&&&&&&&&   
         if (e.getYourImageFlag()) {
-         	 Bitmap bitmap = BitmapFactory.decodeFile(e.getYourImagePath());
-				eventIcon.setImageBitmap(bitmap);
+        	Bitmap bitmap = globals.getBitmapFromResurce(e.getYourImagePath());
+        	if (bitmap!=null) {
+        		eventIcon.setImageBitmap(bitmap);
+			} else {
+				eventIcon.setImageResource(R.drawable.ic_launcher);
+			}
+         	 
+				
+				
 		} else {
 	        eventIcon.setImageDrawable(a.getResources().getDrawable(globals.getIconId(a, e.getIconId())));
 		}

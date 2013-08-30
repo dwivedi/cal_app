@@ -404,6 +404,7 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
         			
         			EventIconPOJO eventIconPOJO = (EventIconPOJO)a.getItemAtPosition(position);
         			if (eventIconPOJO.getViewType() == DEFULT_ICON_VIEW_TYPE) {
+        				String abcdf = globals.getIconPath((Integer)v.getTag());
         				event.setIconId(globals.getIconPath((Integer)v.getTag()));
             			event.setYourImageFlag(false);
 					} else {
@@ -539,6 +540,7 @@ public class EventDetailsActivity extends Activity implements   View.OnClickList
 				eventIcon.setImageBitmap(bitmap);
 				
  			}else{
+ 				Integer abcd = globals.getIconId(this, event.getIconId());
 			eventIcon.setImageDrawable(getResources().getDrawable(globals.getIconId(this, event.getIconId())));
 			
  			}

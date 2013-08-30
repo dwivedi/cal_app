@@ -7,6 +7,7 @@ import se.smartkalender.types.SmartCalendarEvent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 public class EventNotification extends BroadcastReceiver {
 	@Override
@@ -18,6 +19,7 @@ public class EventNotification extends BroadcastReceiver {
 		globals.addRecordToLog("received alarm for event - "  +  event.getName());
         Intent intent = new Intent(context, EventNotificationDialog.class);
         intent.putExtra("eventId", event.getId());
+        intent.putExtra("SELECTED_EVENT", event);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         context.startActivity(intent);
@@ -25,4 +27,6 @@ public class EventNotification extends BroadcastReceiver {
 		// and again schedule alarms
 		EventsManager.setAlarmForFirstEvent(context);		
 	}
+	
+	 
 }

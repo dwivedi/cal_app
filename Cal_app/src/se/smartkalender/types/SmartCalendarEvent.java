@@ -1,5 +1,6 @@
 package se.smartkalender.types;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import se.smartkalender.globals;
@@ -8,7 +9,7 @@ import se.smartkalender.globals;
 import android.graphics.Color;
 import android.text.format.DateFormat;
 
-public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>{
+public class SmartCalendarEvent implements Comparable<SmartCalendarEvent>,Serializable{
 	private int color = Color.YELLOW;
 	private int id;
 	private String name = "Event Default Name";
